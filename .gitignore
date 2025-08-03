@@ -1,0 +1,38 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+
+# Archivos de configuración y credenciales
+.env
+.cdsapirc
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Distribución / empaquetado
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Archivos de VSCode (opcional, depende de tus preferencias)
+.vscode/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
