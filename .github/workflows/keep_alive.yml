@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Ping Render Service
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" "https://tu-servicio-en-render.onrender.com/ping")
+          response=$(curl -s -o /dev/null -w "%{http_code}" "https://siria-drought-api.onrender.com/ping")
           echo "Ping status: $response"
           if [ "$response" -ne 200 ]; then
             echo "Ping failed with status: $response"
