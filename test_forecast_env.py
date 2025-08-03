@@ -20,6 +20,7 @@ def test_recent_forecast(lat=None, lon=None):
             "lat": 3.388909268582466,
             "lon": -76.53779766459249
         }
+        # 19.716713092598923, -99.23831351446583
     else:
         payload = {
             "lat": lat,

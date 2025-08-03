@@ -1,0 +1,25 @@
+name: Keep Render Service Alive
+
+on:
+  schedule:
+    # Ejecutar cada 10 minutos
+    - cron: '*/10 * * * *'
+  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render Service
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" "https://tu-servicio-en-render.onrender.com/ping")
+          echo "Ping status: $response"
+          if [ "$response" -ne 200 ]; then
+            echo "Ping failed with status: $response"
+          else
+            echo "Ping successful!"
+          fi
+        continue-on-error: true  # Continuar incluso si el ping falla
+        
+      - name: Log timestamp
+        run: echo "Ping executed at $(date)"

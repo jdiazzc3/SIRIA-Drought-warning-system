@@ -20,6 +20,16 @@ app = Flask(__name__)
 MODEL_PATH = os.getenv('MODEL_PATH', 'drought_mlp_model.pkl')
 SCALER_PATH = os.getenv('SCALER_PATH', 'minmax_scaler.pkl')
 
+# Endpoint para mantener el servicio activo en Render
+@app.route('/ping', methods=['GET'])
+def ping():
+    """Endpoint liviano para mantener el servicio activo"""
+    return jsonify({
+        "status": "alive",
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "service": "drought-api"
+    })
+
 # Verificar si los archivos existen
 if not os.path.exists(MODEL_PATH) or not os.path.exists(SCALER_PATH):
     raise FileNotFoundError(f"No se encontraron los archivos del modelo o el scaler en {os.getcwd()}")
