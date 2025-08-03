@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools>=69.0.0", "wheel>=0.43.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drought-api"
+version = "0.1.0"
+description = "API para predicción de sequía"
+requires-python = ">=3.10"
